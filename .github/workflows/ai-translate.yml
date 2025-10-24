@@ -1,0 +1,29 @@
+name: AI Auto Translate & SEO
+on:
+  push:
+    paths:
+      - "content/blog/*.md"
+  workflow_dispatch: {}
+
+jobs:
+  translate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm ci
+      - name: Run Translation
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: npm run i18n:build
+      - name: Commit & Push
+        run: |
+          git config user.name "AI Translator Bot"
+          git config user.email "bot@smartpicture.ai"
+          git add locales/
+          git diff --cached --quiet || git commit -m "🤖 i18n: auto translate & SEO"
+          git push

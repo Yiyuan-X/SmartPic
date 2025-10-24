@@ -1,0 +1,26 @@
+{
+  "name": "smartpicture-i18n-seo-firebase",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "i18n:build": "node scripts/ai-translate-seo.mjs",
+    "news:build": "node scripts/ai-news-fetch-translate.mjs"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.21.0",
+    "glob": "^11.0.0",
+    "next": "14.2.10",
+    "next-intl": "^3.18.1",
+    "node-fetch": "^3.3.2",
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "24.9.1",
+    "@types/react": "19.2.2",
+    "typescript": "^5.6.3"
+  }
+}

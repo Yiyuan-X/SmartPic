@@ -1,0 +1,29 @@
+name: Auto Fetch & Translate News
+on:
+  schedule:
+    - cron: "0 2 * * *"
+  workflow_dispatch: {}
+
+jobs:
+  news:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm ci
+      - name: Run News Builder
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          NEWS_API_KEY: ${{ secrets.NEWS_API_KEY }}
+        run: npm run news:build
+      - name: Commit & Push
+        run: |
+          git config user.name "AI News Bot"
+          git config user.email "bot@smartpicture.ai"
+          git add locales/
+          git diff --cached --quiet || git commit -m "📰 Auto-published AI/Tech news"
+          git push

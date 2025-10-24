@@ -1,0 +1,24 @@
+{
+  "hosting": {
+    "public": "public",
+    "cleanUrls": true,
+    "trailingSlash": false,
+    "rewrites": [
+      {
+        "source": "/sitemap.xml",
+        "function": "ssr"
+      },
+      {
+        "source": "/robots.txt",
+        "function": "ssr"
+      },
+      {
+        "source": "/api/**",
+        "function": "ssr"
+      }
+    ]
+  },
+  "functions": {
+    "source": "functions"
+  }
+}
