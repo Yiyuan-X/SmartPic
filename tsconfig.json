@@ -32,8 +32,9 @@
     "src",
     "scripts",
     ".next/types/**/*.ts"
-  ],
+, "functions/src/geminiProxy.ts", "functions/src/payments.ts", "functions/src/index.ts"  ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "auth-ui"
   ]
 }

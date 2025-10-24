@@ -1,0 +1,20 @@
+{
+  "common": {
+    "siteTitle": "SmartPicture Intelligente Bildnachrichtenplattform",
+    "welcome": "Willkommen bei SmartPicture!",
+    "learnMore": "Mehr erfahren",
+    "readNow": "Jetzt lesen",
+    "latestNews": "Neueste KI-Nachrichten",
+    "contact": "Kontaktieren Sie uns"
+  },
+  "footer": {
+    "rights": "Copyright © 2025 SmartPicture",
+    "privacy": "Datenschutzrichtlinie",
+    "terms": "Nutzungsbedingungen"
+  },
+  "home": {
+    "headline": "KI-Nachrichten · Globale Perspektive · Intelligente Einblicke",
+    "subheading": "Tägliche Updates zu globalen KI-Dynamiken und Trends",
+    "buttonExplore": "Mehr erkunden"
+  }
+}

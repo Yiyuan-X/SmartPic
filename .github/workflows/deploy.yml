@@ -1,0 +1,49 @@
+name: Deploy SmartPicture to Firebase
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    name: Build & Deploy to Firebase
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1️⃣ 拉取仓库代码
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2️⃣ 设置 Node 环境（与你本地一致）
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+
+      # 3️⃣ 安装 pnpm（如果你使用 npm 或 yarn，可改成相应命令）
+      - name: Install pnpm
+        run: npm install -g pnpm
+
+      # 4️⃣ 安装依赖并构建项目
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build Next.js app
+        run: pnpm run build
+
+      # 5️⃣ 认证 Google Cloud / Firebase
+      - name: Authenticate with Google Cloud
+        uses: google-github-actions/auth@v2
+        with:
+          credentials_json: ${{ secrets.GCP_SA_KEY }}
+
+      # 6️⃣ 安装 Firebase CLI
+      - name: Install Firebase CLI
+        run: npm install -g firebase-tools
+
+      # 7️⃣ 部署到 Firebase（Hosting + Functions）
+      - name: Deploy to Firebase
+        run: |
+          firebase deploy --only hosting,functions --project=all-74802152-9ef06 --non-interactive

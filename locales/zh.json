@@ -1,0 +1,20 @@
+{
+  "common": {
+    "siteTitle": "SmartPicture 智能图片新闻平台",
+    "welcome": "欢迎来到 SmartPicture！",
+    "learnMore": "了解更多",
+    "readNow": "立即阅读",
+    "latestNews": "最新 AI 新闻",
+    "contact": "联系我们"
+  },
+  "footer": {
+    "rights": "版权所有 © 2025 SmartPicture",
+    "privacy": "隐私政策",
+    "terms": "使用条款"
+  },
+  "home": {
+    "headline": "AI 新闻 · 全球视野 · 智能洞察",
+    "subheading": "每日更新全球人工智能动态与趋势",
+    "buttonExplore": "探索更多"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "common": {
+    "siteTitle": "SmartPicture Plataforma de Notícias Inteligentes de Imagem",
+    "welcome": "Bem-vindo à SmartPicture!",
+    "learnMore": "Saiba Mais",
+    "readNow": "Leia Agora",
+    "latestNews": "Últimas Notícias de IA",
+    "contact": "Contate-nos"
+  },
+  "footer": {
+    "rights": "Todos os direitos reservados © 2025 SmartPicture",
+    "privacy": "Política de Privacidade",
+    "terms": "Termos de Uso"
+  },
+  "home": {
+    "headline": "Notícias de IA · Visão Global · Insights Inteligentes",
+    "subheading": "Atualizações diárias sobre dinâmicas e tendências globais de inteligência artificial",
+    "buttonExplore": "Explorar Mais"
+  }
+}

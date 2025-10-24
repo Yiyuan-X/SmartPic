@@ -1,13 +1,14 @@
-/** @type {import('next').NextConfig} */
+// next.config.mjs
+import withNextIntl from 'next-intl/plugin';
+
+const withIntl = withNextIntl('./app/i18n.ts');
+
 const nextConfig = {
   reactStrictMode: true,
-  images: {
-    unoptimized: true,
-    remotePatterns: [
-      { protocol: "https", hostname: "images.unsplash.com", pathname: "/**" },
-      { protocol: "https", hostname: "source.unsplash.com", pathname: "/**" }
-    ]
-  },
-  experimental: { appDir: true }
+  output: 'export', // ✅ 静态导出模式，取代 next export
+  experimental: {
+    optimizeCss: true
+  }
 };
-export default nextConfig;
+
+export default withIntl(nextConfig);

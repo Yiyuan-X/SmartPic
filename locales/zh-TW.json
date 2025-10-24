@@ -1,0 +1,20 @@
+{
+  "common": {
+    "siteTitle": "SmartPicture 智慧圖片新聞平台",
+    "welcome": "歡迎來到 SmartPicture！",
+    "learnMore": "了解更多",
+    "readNow": "立即閱讀",
+    "latestNews": "最新 AI 新聞",
+    "contact": "聯繫我們"
+  },
+  "footer": {
+    "rights": "版權所有 © 2025 SmartPicture",
+    "privacy": "隱私政策",
+    "terms": "使用條款"
+  },
+  "home": {
+    "headline": "AI 新聞 · 全球視野 · 智慧洞察",
+    "subheading": "每日更新全球人工智能動態與趨勢",
+    "buttonExplore": "探索更多"
+  }
+}

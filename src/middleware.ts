@@ -1,5 +1,12 @@
-import createMiddleware from "next-intl/middleware";
-import {locales, defaultLocale} from "./lib/i18n.config";
+// middleware.ts
+import createMiddleware from 'next-intl/middleware';
 
-export default createMiddleware({locales, defaultLocale});
-export const config = { matcher: ["/((?!_next|.*\\..*).*)"] };
+export default createMiddleware({
+  locales: ['en', 'zh-TW', 'ja', 'ko', 'fr', 'de', 'es', 'pt'],
+  defaultLocale: 'en',
+  localeDetection: true
+});
+
+export const config = {
+  matcher: ['/', '/(en|zh-TW|ja|ko|fr|de|es|pt)/:path*']
+};

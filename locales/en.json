@@ -1,0 +1,20 @@
+{
+  "common": {
+    "siteTitle": "SmartPicture Intelligent Picture News Platform",
+    "welcome": "Welcome to SmartPicture!",
+    "learnMore": "Learn More",
+    "readNow": "Read Now",
+    "latestNews": "Latest AI News",
+    "contact": "Contact Us"
+  },
+  "footer": {
+    "rights": "All rights reserved © 2025 SmartPicture",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Use"
+  },
+  "home": {
+    "headline": "AI News · Global Perspective · Intelligent Insights",
+    "subheading": "Daily updates on global artificial intelligence dynamics and trends",
+    "buttonExplore": "Explore More"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "slug": "hello-world",
+  "title": "Hello World",
+  "bodyHtml": "<h1>Hello World</h1>\n<p>This is the first post. We will translate it to multiple languages and add SEO automatically.</p>\n",
+  "seo": {
+    "title": "Hello World",
+    "keywords": [
+      "AI"
+    ],
+    "canonical": "https://smartpicture.ai/en/blog/hello-world",
+    "ogImage": ""
+  }
+}

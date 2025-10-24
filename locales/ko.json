@@ -1,0 +1,20 @@
+{
+  "common": {
+    "siteTitle": "SmartPicture 스마트 이미지 뉴스 플랫폼",
+    "welcome": "SmartPicture에 오신 것을 환영합니다!",
+    "learnMore": "더 알아보기",
+    "readNow": "지금 읽기",
+    "latestNews": "최신 AI 뉴스",
+    "contact": "문의하기"
+  },
+  "footer": {
+    "rights": "Copyright © 2025 SmartPicture",
+    "privacy": "개인정보처리방침",
+    "terms": "이용약관"
+  },
+  "home": {
+    "headline": "AI 뉴스 · 글로벌 시각 · 스마트 인사이트",
+    "subheading": "매일 업데이트되는 글로벌 인공지능 동향 및 최신 소식",
+    "buttonExplore": "더 탐색하기"
+  }
+}

@@ -1,24 +1,42 @@
 {
   "hosting": {
-    "public": "public",
+    "public": "out",
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
     "cleanUrls": true,
     "trailingSlash": false,
     "rewrites": [
       {
-        "source": "/sitemap.xml",
-        "function": "ssr"
+        "source": "/",
+        "destination": "/zh-TW/index.html"
       },
       {
-        "source": "/robots.txt",
-        "function": "ssr"
+        "source": "/zh-TW",
+        "destination": "/zh-TW/index.html"
       },
       {
-        "source": "/api/**",
-        "function": "ssr"
+        "source": "/en",
+        "destination": "/en/index.html"
+      },
+      {
+        "source": "/ja",
+        "destination": "/ja/index.html"
+      },
+      {
+        "source": "/fr",
+        "destination": "/fr/index.html"
+      },
+      {
+        "source": "/de",
+        "destination": "/de/index.html"
+      },
+      {
+        "source": "/es",
+        "destination": "/es/index.html"
+      },
+      {
+        "source": "/pt",
+        "destination": "/pt/index.html"
       }
     ]
-  },
-  "functions": {
-    "source": "functions"
   }
 }

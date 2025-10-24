@@ -1,0 +1,20 @@
+{
+  "common": {
+    "siteTitle": "SmartPicture スマート画像ニュースプラットフォーム",
+    "welcome": "SmartPictureへようこそ！",
+    "learnMore": "もっと知る",
+    "readNow": "今すぐ読む",
+    "latestNews": "最新AIニュース",
+    "contact": "お問い合わせ"
+  },
+  "footer": {
+    "rights": "All rights reserved © 2025 SmartPicture",
+    "privacy": "プライバシーポリシー",
+    "terms": "利用規約"
+  },
+  "home": {
+    "headline": "AIニュース・グローバルな視点・インテリジェントな洞察",
+    "subheading": "世界のAIの動向とトレンドを毎日更新",
+    "buttonExplore": "さらに探索"
+  }
+}
