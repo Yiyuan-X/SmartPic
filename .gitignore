@@ -10,3 +10,5 @@ functions/.env
 .env.local
 *.log
 .DS_Store
+.env.local
+.env
