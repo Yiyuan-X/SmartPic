@@ -58,3 +58,7 @@ firestore.indexes.json
 tmp/
 temp/
 .cache/
+
+
+# TypeScript incremental build cache
+*.tsbuildinfo

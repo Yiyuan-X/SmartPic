@@ -1,14 +1,12 @@
-// next.config.mjs
-import withNextIntl from 'next-intl/plugin';
+import createNextIntlPlugin from 'next-intl/plugin';
 
-const withIntl = withNextIntl('./app/i18n.ts');
+const withNextIntl = createNextIntlPlugin();
 
 const nextConfig = {
+  images: { unoptimized: true },
+  trailingSlash: true,
   reactStrictMode: true,
-  output: 'export', // ✅ 静态导出模式，取代 next export
-  experimental: {
-    optimizeCss: true
-  }
+  experimental: { optimizeCss: true },
 };
 
-export default withIntl(nextConfig);
+export default withNextIntl(nextConfig);

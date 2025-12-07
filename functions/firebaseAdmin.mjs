@@ -1,12 +1,11 @@
 import admin from "firebase-admin";
+import { getStorage } from "firebase-admin/storage";
 
 if (!admin.apps.length) {
-  admin.initializeApp({
-    credential: admin.credential.applicationDefault(),
-    storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
-  });
+  admin.initializeApp();
 }
 
-export const db = admin.firestore();
-export const bucket = admin.storage().bucket();
-export default admin;
+const db = admin.firestore();
+const bucket = getStorage().bucket();
+
+export { admin, db, bucket };

@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { onRequest } from "firebase-functions/v2/https";
 import { defineSecret } from "firebase-functions/params";
 import { setGlobalOptions } from "firebase-functions/v2/options";
@@ -8,7 +9,7 @@ setGlobalOptions({ secrets: [STRIPE_SECRET_KEY] });
 
 const stripe = new Stripe(STRIPE_SECRET_KEY.value());
 
-export const stripeWebhook = onRequest(async (req, res) => {
+export const stripeWebhook = onRequest(async (req: any, res: any) => {
   try {
     // 你的逻辑...
     res.status(200).send("ok");

@@ -1,1 +1,7 @@
-{}
+{
+  "/[locale]/blog/[slug]/page": "app/[locale]/blog/[slug]/page.js",
+  "/[locale]/news/[slug]/page": "app/[locale]/news/[slug]/page.js",
+  "/[locale]/page": "app/[locale]/page.js",
+  "/_global-error/page": "app/_global-error/page.js",
+  "/_not-found/page": "app/_not-found/page.js"
+}

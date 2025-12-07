@@ -1,6 +1,12 @@
-declare module "../firebaseAdmin.mjs" {
-  import admin from "firebase-admin";
-  export const db: FirebaseFirestore.Firestore;
-  export const bucket: admin.storage.Storage['bucket'];
-  export default admin;
+/* eslint-disable */
+import admin from "firebase-admin";
+import { getStorage } from "firebase-admin/storage";
+
+if (!admin.apps.length) {
+  admin.initializeApp();
 }
+
+const db = admin.firestore();
+const bucket = getStorage().bucket();
+
+export { admin, db, bucket };

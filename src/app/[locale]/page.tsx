@@ -1,43 +1,27 @@
-import {NextIntlClientProvider} from 'next-intl';
-import {notFound} from 'next/navigation';
-import React, {ReactNode} from 'react';
-import '../../globals.css';
 
-// ✅ 静态生成多语言目录
-export function generateStaticParams() {
-  return ['en', 'zh-TW', 'ja', 'ko', 'fr', 'de', 'es', 'pt'].map((locale) => ({
-    locale,
-  }));
-}
+import { Metadata } from 'next';
 
-export const metadata = {
-  title: 'SmartPicture AI',
-  description: 'AI-powered multilingual SEO and automation platform',
+export const metadata: Metadata = {
+  title: '🌏 SmartPicture | AI Multilingual SEO Demo',
+  description: 'SmartPicture auto-generated static export for i18n testing.',
+  openGraph: {
+    title: 'SmartPicture AI SEO',
+    description: 'Multilingual Next.js static site with i18n + AEO + SEO',
+    url: 'https://smartpicture.ai',
+    siteName: 'SmartPicture',
+    images: ['/og.png'],
+    locale: 'zh_CN',
+    type: 'website',
+  },
 };
 
-interface LocaleLayoutProps {
-  children: ReactNode;
-  params: {locale: string};
-}
-
-export default async function LocaleLayout({
-  children,
-  params: {locale},
-}: LocaleLayoutProps) {
-  let messages;
-  try {
-    messages = (await import(`../../locales/${locale}.json`)).default;
-  } catch (error) {
-    notFound();
-  }
-
+export default function Page() {
   return (
-    <html lang={locale}>
-      <body>
-        <NextIntlClientProvider locale={locale} messages={messages}>
-          {children}
-        </NextIntlClientProvider>
-      </body>
-    </html>
+    <main style={{ padding: '3rem', lineHeight: '1.6' }}>
+      <h1>🌏 SmartPicture 多语言 SEO 测试页</h1>
+      <p>此页面由脚本自动生成，支持多语言与静态导出。</p>
+      <p><strong>Next.js 14 + output: 'export'</strong> 已启用。</p>
+      <p>✅ SEO + AEO 元标签自动生成。</p>
+    </main>
   );
 }

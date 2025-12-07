@@ -1,37 +1,84 @@
 {
   "name": "smartpicture-i18n-seo-firebase",
-  "private": true,
   "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": "20"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "i18n:build": "node scripts/ai-translate-seo.mjs",
-    "news:build": "node scripts/ai-news-fetch-translate.mjs"
+    "start": "serve out",
+    "clean": "rm -rf .next dist build node_modules/.cache && pnpm store prune",
+    "lint": "next lint",
+    "type-check": "tsc --noEmit",
+    "format": "prettier --write .",
+    "i18n:init": "bash setup-i18n.sh",
+    "i18n:build": "node --loader ts-node/esm scripts/translate-seo.mts",
+    "i18n:fix": "tsx --no-cache scripts/translate-seo-fix.mts",
+    "i18n:sync": "tsx --no-cache scripts/translate-seo-fix.mts && next build",
+    "translate": "tsx --no-cache scripts/translate-seo.mts",
+    "build:i18n": "tsx --no-cache scripts/build-i18n-static.mts",
+    "test:gemini": "tsx --no-cache scripts/test-gemini.mts",
+    "functions:build": "cd functions && pnpm run build",
+    "functions:deploy": "cd functions && pnpm run deploy",
+    "deploy": "pnpm run build && firebase deploy --only hosting,functions",
+    "zip:i18n": "zip -r smartpicture-i18n-ai.zip next-intl.config.ts src/middleware.ts messages content scripts .github"
   },
   "dependencies": {
-    "@google-cloud/vertexai": "^1.10.0",
+    "@google/generative-ai": "^0.24.1",
+    "@headlessui/react": "^2.2.9",
+    "@heroicons/react": "^2.1.5",
+    "@next/font": "14.2.10",
     "chalk": "^5.6.2",
+    "chokidar": "^4.0.3",
     "critters": "^0.0.25",
     "dotenv": "^17.2.3",
-    "firebase": "^12.4.0",
-    "glob": "^11.0.0",
-    "next": "14.2.10",
-    "next-intl": "^3.18.1",
+    "firebase": "^11.0.0",
+    "firebase-admin": "^13.5.0",
+    "firebase-functions": "^6.6.0",
+    "framer-motion": "^11.2.10",
+    "gray-matter": "^4.0.3",
+    "marked": "^16.4.1",
+    "next": "latest",
+    "next-intl": "^4.4.0",
     "node-fetch": "^3.3.2",
-    "react": "18.3.1",
-    "react-dom": "18.3.1",
+    "react": "19.2.1",
+    "react-dom": "19.2.1",
+    "react-icons": "^5.3.0",
+    "sharp": "^0.33.4",
+    "slugify": "^1.6.6",
     "stripe": "^19.1.0"
   },
   "devDependencies": {
-    "@google/generative-ai": "^0.21.0",
-    "@types/node": "24.9.1",
-    "@types/react": "19.2.2",
-    "chokidar": "^4.0.3",
-    "gray-matter": "^4.0.3",
-    "marked": "^16.4.1",
-    "slugify": "^1.6.6",
-    "tsx": "^4.20.6",
-    "typescript": "^5.6.3"
-  }
+    "@types/chalk": "^2.2.4",
+    "@types/chokidar": "^2.1.7",
+    "@types/node": "^20.16.12",
+    "@types/react": "^18.3.10",
+    "@types/react-dom": "^18.3.0",
+    "autoprefixer": "^10.4.20",
+    "esbuild": "^0.19.11",
+    "eslint": "^8.57.0",
+    "eslint-config-next": "14.2.10",
+    "postcss": "^8.4.47",
+    "prettier": "^3.3.3",
+    "serve": "^14.2.5",
+    "tailwindcss": "^3.4.14",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.7.1",
+    "typescript": "^5.4.5"
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true,
+    "trailingComma": "es5",
+    "printWidth": 100
+  },
+  "eslintConfig": {
+    "extends": [
+      "next/core-web-vitals"
+    ]
+  },
+  "enginesStrict": true
 }

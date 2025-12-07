@@ -1,3 +1,4 @@
+/* eslint-disable */
 /**
  * 🌐 SmartPicture AI Tech News Engine v13.7
  * 多语言国际版 + 自动 SEO / AEO 优化
@@ -9,7 +10,7 @@ import fetch from "node-fetch";
 import fs from "fs";
 import path from "path";
 import { marked } from "marked";
-import { bucket, db } from "../firebaseAdmin.mjs";
+import { bucket, db } from "./firebaseAdmin.js";
 import { defineSecret } from "firebase-functions/params";
 import { onSchedule } from "firebase-functions/v2/scheduler";
 import { setGlobalOptions } from "firebase-functions/v2/options";

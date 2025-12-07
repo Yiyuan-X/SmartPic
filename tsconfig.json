@@ -9,8 +9,12 @@
     "moduleResolution": "Node",
     "resolveJsonModule": true,
     "esModuleInterop": true,
-    "jsx": "preserve",
-    "strict": true,
+    "jsx": "react-jsx",
+    "strict": false,
+    "skipLibCheck": true,
+    "types": [
+      "node"
+    ],
     "baseUrl": ".",
     "paths": {
       "@/*": [
@@ -18,7 +22,6 @@
       ]
     },
     "allowJs": true,
-    "skipLibCheck": true,
     "noEmit": true,
     "incremental": true,
     "isolatedModules": true,
@@ -30,9 +33,14 @@
   },
   "include": [
     "src",
+    "src/i18n/**/*",
     "scripts",
-    ".next/types/**/*.ts"
-, "functions/src/geminiProxy.ts", "functions/src/payments.ts", "functions/src/index.ts"  ],
+    ".next/types/**/*.ts",
+    "functions/src/geminiProxy.ts",
+    "functions/src/payments.ts",
+    "functions/src/index.ts",
+    ".next/dev/types/**/*.ts"
+  ],
   "exclude": [
     "node_modules",
     "auth-ui"

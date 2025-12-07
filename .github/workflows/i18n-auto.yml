@@ -1,0 +1,83 @@
+name: 🌐 SmartPicture i18n + SEO Automation (Gemini 2.5 Flash-Lite + Lighthouse)
+
+on:
+  schedule:
+    - cron: '0 2 * * *'   # 每天凌晨 2 点 UTC（北京时间上午 10 点）
+  push:
+    paths:
+      - 'content/blog/**.md'
+  workflow_dispatch:
+
+jobs:
+  auto-i18n-seo:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: 🧭 Checkout repository
+        uses: actions/checkout@v4
+
+      - name: 🧰 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: 📦 Setup pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 9
+
+      - name: 🧩 Install dependencies
+        run: pnpm install
+
+      - name: 🤖 Run SmartPicture i18n + SEO/AEO generator
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: bash setup-i18n.sh
+
+      - name: 📤 Commit & Push generated locales and sitemap
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "github-actions@users.noreply.github.com"
+          git add locales/ public/sitemap.xml || true
+          git commit -m "chore: auto i18n + SEO/AEO update [skip ci]" || true
+          git push || echo "Nothing to push."
+
+      - name: 🔍 Ping Google & Bing for sitemap indexing
+        run: |
+          echo "🚀 Submitting sitemap to search engines..."
+          SITE_URL="https://smartpicture.ai"
+          SITEMAP_URL="${SITE_URL}/sitemap.xml"
+          curl -s "https://www.google.com/ping?sitemap=${SITEMAP_URL}" || true
+          curl -s "https://www.bing.com/ping?sitemap=${SITEMAP_URL}" || true
+          echo "✅ Sitemap ping completed."
+
+      - name: 📊 Run Lighthouse SEO Audit
+        run: |
+          npm install -g lighthouse@12.2.0 chrome-launcher@0.15.2
+          mkdir -p reports
+          echo "🧪 Running Lighthouse audit on https://smartpicture.ai ..."
+          lighthouse https://smartpicture.ai \
+            --output json \
+            --output html \
+            --output-path ./reports/lighthouse-report \
+            --only-categories=performance,seo,best-practices,accessibility \
+            --chrome-flags="--headless --no-sandbox --disable-gpu"
+          echo "✅ Lighthouse audit complete."
+
+      - name: 🗂 Upload SEO Report as Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: lighthouse-report
+          path: reports/
+          retention-days: 7
+
+      - name: 📩 Optional: Commit SEO report to repo
+        if: ${{ github.event_name == 'workflow_dispatch' }}
+        run: |
+          mkdir -p seo-reports
+          cp reports/* seo-reports/ || true
+          git add seo-reports/ || true
+          git commit -m "📈 SEO audit report (Lighthouse)" || true
+          git push || echo "No new report."

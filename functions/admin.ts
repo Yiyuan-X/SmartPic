@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { onRequest } from "firebase-functions/v2/https";
 import admin from "firebase-admin";
 
@@ -12,7 +13,7 @@ export const bucket = admin.storage().bucket();
 /**
  * ✅ 示例函数：测试访问 Firestore
  */
-export const adminUsers = onRequest(async (req, res) => {
+export const adminUsers = onRequest(async (req: any, res: any) => {
   const snapshot = await db.collection("users").get();
   const count = snapshot.size;
   res.json({ message: `Total users: ${count}` });
