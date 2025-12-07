@@ -1,29 +1,31 @@
 {
-  "name": "smartpicture-i18n-seo-firebase",
+  "name": "smartpicture-i18n-seo",
   "version": "1.0.0",
   "private": true,
   "type": "module",
   "engines": {
     "node": "20"
   },
+  "enginesStrict": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "serve out",
     "clean": "rm -rf .next dist build node_modules/.cache && pnpm store prune",
+
     "lint": "next lint",
     "type-check": "tsc --noEmit",
     "format": "prettier --write .",
+
     "i18n:init": "bash setup-i18n.sh",
     "i18n:build": "node --loader ts-node/esm scripts/translate-seo.mts",
     "i18n:fix": "tsx --no-cache scripts/translate-seo-fix.mts",
     "i18n:sync": "tsx --no-cache scripts/translate-seo-fix.mts && next build",
     "translate": "tsx --no-cache scripts/translate-seo.mts",
     "build:i18n": "tsx --no-cache scripts/build-i18n-static.mts",
+
     "test:gemini": "tsx --no-cache scripts/test-gemini.mts",
-    "functions:build": "cd functions && pnpm run build",
-    "functions:deploy": "cd functions && pnpm run deploy",
-    "deploy": "pnpm run build && firebase deploy --only hosting,functions",
+
     "zip:i18n": "zip -r smartpicture-i18n-ai.zip next-intl.config.ts src/middleware.ts messages content scripts .github"
   },
   "dependencies": {
@@ -35,9 +37,6 @@
     "chokidar": "^4.0.3",
     "critters": "^0.0.25",
     "dotenv": "^17.2.3",
-    "firebase": "^11.0.0",
-    "firebase-admin": "^13.5.0",
-    "firebase-functions": "^6.6.0",
     "framer-motion": "^11.2.10",
     "gray-matter": "^4.0.3",
     "marked": "^16.4.1",
@@ -76,9 +75,6 @@
     "printWidth": 100
   },
   "eslintConfig": {
-    "extends": [
-      "next/core-web-vitals"
-    ]
-  },
-  "enginesStrict": true
+    "extends": ["next/core-web-vitals"]
+  }
 }
