@@ -1,8 +1,8 @@
 name: 🌐 SmartPicture i18n + SEO Automation (Gemini 2.5 Flash-Lite + Lighthouse)
 
 on:
-  schedule:
-    - cron: '0 2 * * *'   # 每天凌晨 2 点 UTC（北京时间上午 10 点）
+#  schedule:
+#    - cron: '0 2 * * *'   # 每天凌晨 2 点 UTC（北京时间上午 10 点）
   push:
     paths:
       - 'content/blog/**.md'

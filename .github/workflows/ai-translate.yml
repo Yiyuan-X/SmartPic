@@ -1,8 +1,8 @@
 name: AI Auto Translate & SEO
 on:
-  push:
-    paths:
-      - "content/blog/*.md"
+#  push:
+#    paths:
+#      - "content/blog/*.md"
   workflow_dispatch: {}
 
 jobs:

@@ -1,7 +1,7 @@
 name: Auto Fetch & Translate News
-on:
-  schedule:
-    - cron: "0 2 * * *"
+ on:
+#  schedule:
+#    - cron: "0 2 * * *"
   workflow_dispatch: {}
 
 jobs:

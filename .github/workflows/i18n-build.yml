@@ -1,8 +1,8 @@
 name: I18N Build & Commit
 on:
-  push:
-    paths:
-      - 'content/blog/**.md'
+#  push:
+#    paths:
+#      - 'content/blog/**.md'
   workflow_dispatch:
 jobs:
   translate:
